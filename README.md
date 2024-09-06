@@ -13,4 +13,5 @@
    - To execute each stored procedure: run the .sql files and the PROCEDURES will be created. CALL has been implemented as well. So, the defined procedures will be called automatically.
    - In Q1, use this command(to check whether table 'Shows' has been updated or not): 
         SELECT * FROM Shows; 
-    
+   - In Q5 A) Make sure Safe update if off, to do that you can use command:
+        SET SQL_SAFE_UPDATES = 0;

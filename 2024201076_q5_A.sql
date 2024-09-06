@@ -1,12 +1,11 @@
 ALTER TABLE Subscribers ADD COLUMN Age INT;
 
 DELIMITER //
-
-CREATE PROCEDURE UpdateAgeWithoutCursor()
+CREATE PROCEDURE UpdateAgeWithoutCursor(IN _age INT)
 BEGIN
-    UPDATE Subscribers SET Age = FLOOR(DATEDIFF(CURDATE(), SubscriptionDate) / 365);
+    UPDATE Subscribers SET Age = _age;
 END //
 
 DELIMITER ;
 
-CALL UpdateAgeWithoutCursor();
+CALL UpdateAgeWithoutCursor(76);
