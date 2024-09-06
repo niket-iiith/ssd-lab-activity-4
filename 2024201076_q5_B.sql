@@ -1,6 +1,6 @@
 DELIMITER //
 
-CREATE PROCEDURE UpdateAgeWithCursor()
+CREATE PROCEDURE UpdateAgeWithCursor(IN _age INT)
 BEGIN
     DECLARE done INT DEFAULT FALSE;
     DECLARE sub_id INT;
@@ -16,7 +16,7 @@ BEGIN
             LEAVE read_loop;
         END IF;
         UPDATE Subscribers
-        SET Age = FLOOR(DATEDIFF(CURDATE(), sub_date) / 365)
+        SET Age = _age
         WHERE SubscriberID = sub_id;
     END LOOP;
 
